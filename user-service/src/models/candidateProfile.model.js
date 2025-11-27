@@ -7,18 +7,6 @@ const candidateProfileSchema = new mongoose.Schema(
             ref: "User",
             required: true,
         },
-
-        fullName: {
-            firstName: {
-                type: String,
-                required: true,
-            },
-
-            lastName: {
-                type: String,
-                required: true,
-            },
-        },
         experienceYears: {
             type: Number,
             default: 0,

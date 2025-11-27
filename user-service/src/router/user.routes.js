@@ -14,4 +14,34 @@ router.post(
     userController.registerUser
 );
 
+/* POST /api/auth/login */
+router.post(
+    "/login",
+    userValidations.loginUserValidation,
+    userController.loginUser
+);
+
+/* GET /api/auth/me */
+router.get("/me", authMiddleware, userController.getUser);
+
+/* GET /api/auth/candidates/me */
+router.get("/candidates/me", authMiddleware, userController.getCandidate);
+
+/* GET /api/auth/recruiters/me */
+router.get("/recruiters/me", authMiddleware, userController.getRecruiter);
+
+/* PATCH /api/auth/candidates/me */
+router.patch(
+    "/candidates/me",
+    authMiddleware,
+    userController.updateCandidateProfile
+);
+
+/* PATCH /api/auth/recruiters/me */
+router.patch(
+    "/recruiters/me",
+    authMiddleware,
+    userController.updateRecruiterProfile
+);
+
 export default router;

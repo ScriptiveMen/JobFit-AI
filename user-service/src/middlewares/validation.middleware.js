@@ -44,3 +44,8 @@ export const registerUserValidation = [
 
     validate,
 ];
+
+export const loginUserValidation = [
+    body("email").isEmail().withMessage("Invalid email"),
+    body("password").notEmpty().withMessage("password is required"),
+];
