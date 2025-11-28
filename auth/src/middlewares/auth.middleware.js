@@ -5,7 +5,7 @@ async function authMiddleware(req, res, next) {
     const { token } = req.cookies;
 
     if (!token) {
-        return res.status(403).json({ message: "Unauthorized" });
+        return res.status(403).json({ message: "No token provided" });
     }
 
     try {
@@ -13,8 +13,7 @@ async function authMiddleware(req, res, next) {
         req.user = decoded;
         next();
     } catch (error) {
-        console.log(error);
-        return res.status(403).json({ message: "Invalid token" });
+        res.status(403).json({ message: "Invalid token or expired" });
     }
 }
 

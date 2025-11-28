@@ -12,6 +12,7 @@ const resumeSchema = new mongoose.Schema(
         },
         atsScore: {
             type: Number,
+            default: 0,
         },
         issues: [
             {
