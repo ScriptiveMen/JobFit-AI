@@ -25,13 +25,9 @@ const resumeSchema = new mongoose.Schema(
             },
         ],
 
-        suggestions: {
-            type: String,
-        },
+        suggestions: [String],
 
-        extractedSkills: {
-            type: String,
-        },
+        extractedSkills: [String],
 
         isLatest: {
             type: Boolean,

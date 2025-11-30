@@ -13,7 +13,7 @@ async function uploadFile(file) {
         return await imagekit.upload({
             file: file.buffer,
             fileName: new mongoose.Types.ObjectId().toString(),
-            folder: "JobFit-AI",
+            folder: "JobFit-AI-Resumes",
         });
     } catch (err) {
         console.log(err);

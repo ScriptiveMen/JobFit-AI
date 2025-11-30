@@ -15,4 +15,10 @@ router.post(
     resumeController.uploadResume
 );
 
+/* GET /api/resume/latest */
+router.get("/latest", authMiddleware, resumeController.getLatestResume);
+
+/* GET /api/resume/:id */
+router.get("/:id", authMiddleware, resumeController.analyseResume);
+
 export default router;

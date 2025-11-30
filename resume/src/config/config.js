@@ -8,6 +8,7 @@ const _config = {
     IMAGEKIT_PUBLIC_KEY: process.env.IMAGEKIT_PUBLIC_KEY,
     IMAGEKIT_PRIVATE_KEY: process.env.IMAGEKIT_PRIVATE_KEY,
     IMAGEKIT_URL_ENDPOINT: process.env.IMAGEKIT_URL_ENDPOINT,
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
 };
 
 export default Object.freeze(_config);
