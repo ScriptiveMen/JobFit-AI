@@ -44,11 +44,11 @@ export async function getLatestResume(req, res) {
 }
 
 export async function analyseResume(req, res) {
-    const id = req.user.id;
+    const { id } = req.params;
 
-    // if (req.user.role !== "recruiter") {
-    //     return res.status(403).json({ message: "Forbidden, not a recruiter" });
-    // }
+    if (req.user.role !== "recruiter") {
+        return res.status(403).json({ message: "Forbidden, not a recruiter" });
+    }
 
     const resume = await resumeModel.findOne({ userId: id });
 
