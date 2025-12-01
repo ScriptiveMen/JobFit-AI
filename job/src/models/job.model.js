@@ -9,7 +9,10 @@ const jobSchema = new mongoose.Schema(
         title: { type: String, required: true },
         description: { type: String, required: true },
         skillsRequired: [String],
-        experienceLevel: { type: String }, // "fresher" | "junior" | "mid" | "senior"
+        experienceLevel: {
+            type: String,
+            enum: ["fresher", "junior", "mid", "senior"],
+        },
         location: String,
         salaryRange: {
             min: Number,
