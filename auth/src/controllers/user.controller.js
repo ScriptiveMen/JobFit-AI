@@ -229,3 +229,21 @@ export async function updateRecruiterProfile(req, res) {
         },
     });
 }
+
+export async function getUserDetails(req, res) {
+    const { userId } = req.params;
+
+    try {
+        const user = await userModel
+            .findById(userId)
+            .select(" -password -googleId");
+
+        if (!user) {
+            return res.status(404).json({ message: "No user found" });
+        }
+        res.status(200).json({ user });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+}

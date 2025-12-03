@@ -44,4 +44,7 @@ router.patch(
     userController.updateRecruiterProfile
 );
 
+/* GET /api/auth/getDetails/:userId */
+router.get("/:userId", authMiddleware, userController.getUserDetails);
+
 export default router;
