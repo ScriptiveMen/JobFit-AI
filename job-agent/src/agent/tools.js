@@ -103,3 +103,23 @@ export const log_agent_decision = tool(
         }),
     }
 );
+
+export const get_job_by_id = tool(
+    async ({ jobId, token }) => {
+        const job = await axios.get(`http://localhost:3003/api/jobs/${jobId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return job.data.job;
+    },
+    {
+        name: "get_job_by_id",
+        description: "Fetches the job by id",
+        schema: z.object({
+            jobId: z.string().describe("Id for job post"),
+            token: z.string().describe("JWT token for auth"),
+        }),
+    }
+);

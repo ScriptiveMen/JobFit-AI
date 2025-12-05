@@ -1,4 +1,3 @@
-// src/agent/agent.js
 import { StateGraph } from "@langchain/langgraph";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import * as tools from "./tools.js";
@@ -117,6 +116,6 @@ ${JSON.stringify(jobs, null, 2)}
     .addEdge("createApplication", "logDecision")
     .addEdge("logDecision", "__end__");
 
-const agent = graph.compile();
+const applyAgent = graph.compile();
 
-export default agent;
+export default applyAgent;

@@ -10,4 +10,11 @@ router.get(
     agentController.autoApply
 );
 
+/* GET /api/agent/resume-suggestions/:jobId */
+router.get(
+    "/resume-suggestions/:jobId",
+    authMiddleware.authMiddleware,
+    agentController.resumeSuggestions
+);
+
 export default router;
