@@ -21,4 +21,11 @@ router.get("/latest", authMiddleware, resumeController.getLatestResume);
 /* GET /api/resume/:id */
 router.get("/:id", authMiddleware, resumeController.analyseResume);
 
+/* GET /api/resume/:candidateId/details */
+router.get(
+    "/:candidateId/details",
+    authMiddleware,
+    resumeController.getResumeDetails
+);
+
 export default router;

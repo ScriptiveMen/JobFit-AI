@@ -35,6 +35,7 @@ export async function getJobs(req, res) {
         location,
         experienceLevel,
         skills,
+        status,
         skip = 0,
         limit = 10,
     } = req.query;
@@ -47,6 +48,9 @@ export async function getJobs(req, res) {
         }
         if (experienceLevel) {
             filter.experienceLevel = experienceLevel;
+        }
+        if (status) {
+            filter.status = status;
         }
         if (skills) {
             filter.skillsRequired = { $in: skills.split(",") };
@@ -84,7 +88,7 @@ export async function changeStatus(req, res) {
         const job = await jobModel.findByIdAndUpdate(
             id,
             { status },
-            { new: true }
+            { new: true, runValidators: true }
         );
         return res.status(200).json({ job });
     } catch (error) {

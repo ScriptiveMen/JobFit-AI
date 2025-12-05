@@ -75,3 +75,17 @@ export async function analyseResume(req, res) {
         summary,
     });
 }
+
+export async function getResumeDetails(req, res) {
+    const { candidateId } = req.params;
+    try {
+        const resume = await resumeModel.findOne({ userId: candidateId });
+        if (!resume) {
+            return res.status(404).json({ message: "No resume found" });
+        }
+        res.status(200).json({ resume });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+}
