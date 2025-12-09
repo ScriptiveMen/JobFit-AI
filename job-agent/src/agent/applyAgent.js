@@ -22,7 +22,6 @@ const decideModel = model.withStructuredOutput(DecisionSchema);
 const GraphState = z.object({
     candidateId: z.string(),
     userId: z.string(),
-
     resume: z.any().optional(),
     jobs: z.any().optional(),
     decision: DecisionSchema.optional(),
