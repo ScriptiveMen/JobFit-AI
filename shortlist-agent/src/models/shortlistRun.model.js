@@ -14,16 +14,19 @@ const shortlistRunSchema = new mongoose.Schema(
             {
                 candidateId: {
                     type: mongoose.Schema.Types.ObjectId,
+                    required: true,
                 },
                 applicationId: {
                     type: mongoose.Schema.Types.ObjectId,
+                    required: true,
                 },
                 resumeId: {
                     type: mongoose.Schema.Types.ObjectId,
+                    required: true,
                 },
-                atsScore: Number,
-                finalScore: Number,
-                reason: String,
+                atsScore: { type: Number, required: true },
+                finalScore: { type: Number, required: true },
+                reason: { type: String, required: true },
             },
         ],
     },

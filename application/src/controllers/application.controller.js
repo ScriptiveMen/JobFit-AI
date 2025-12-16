@@ -89,6 +89,7 @@ export async function allApplicationsRecruiter(req, res) {
                     status: app.status,
                     source: app.source,
                     candidate: {
+                        id: app.candidateId,
                         fullName: data.user.fullName,
                         email: data.user.email,
                     },
